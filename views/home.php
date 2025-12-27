@@ -9,9 +9,9 @@ $user = $_SESSION['user'] ?? null;
 
 <div class="card">
   <div class="card-body">
-    <h5 class="card-title mb-2">Conexão com o banco OK ✅</h5>
+    <h5 class="card-title mb-2">Lorem Ipsum</h5>
     <p class="card-text mb-0">
-      A partir daqui você pode começar a construir as telas do sistema (documentos, certificados, indicadores…).
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non tincidunt orci, sit amet ultrices nibh. Vivamus dolor odio, porta eu fermentum vitae, tempor nec augue. Mauris in magna bibendum, volutpat mauris a, tristique dolor. In aliquam mauris et sodales sagittis. Nam metus tellus, dignissim id elit at, sodales cursus ligula. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras fermentum neque nec finibus dictum.
     </p>
   </div>
 </div>

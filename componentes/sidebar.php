@@ -5,10 +5,35 @@ if (session_status() === PHP_SESSION_NONE) {
 $user = $_SESSION['user'] ?? null;
 $activePage = $activePage ?? 'home';
 $links = [
-  'home' => ['label' => 'Início', 'icon' => 'bi-house', 'href' => url('index.php')],
-  'certificados' => ['label' => 'Certificados', 'icon' => 'bi-patch-check', 'href' => url('index.php?page=certificados')],
-  'documentos' => ['label' => 'Documentos', 'icon' => 'bi-folder2', 'href' => url('index.php?page=documentos')],
-  'indicadores' => ['label' => 'Indicadores', 'icon' => 'bi-bar-chart', 'href' => url('index.php?page=indicadores')],
+  'home' => ['label' => 'Início', 'icon' => 'bi-house', 'href' => url('app.php')],
+  'protocolo' => ['label' => 'Protocolo Eletrônico', 'icon' => 'bi-file-text-fill', 'href' => url('index.php?page=protocolo')],
+  'documentos' => ['label' => 'Repositório de Documentos', 'icon' => 'bi-chat-left-text-fill', 'href' => url('index.php?page=documentos')],
+  'assinatura' => ['label' => 'Assinatura Digital', 'icon' => 'bi-pencil-square', 'href' => url('index.php?page=assinatura')],
+  'certificados' => ['label' => 'Certificados', 'icon' => 'bi-file-earmark-medical-fill', 'href' => url('index.php?page=certificados')],
+  'atestados' => ['label' => 'Atestados', 'icon' => 'bi-file-earmark-post', 'href' => url('index.php?page=atestados')],
+  'ouvidoria' => ['label' => 'Ouvidoria', 'icon' => 'bi-bookmark-plus', 'href' => url('index.php?page=ouvidoria')],
+  'dashboards' => ['label' => 'Dashboards', 'icon' => 'bi-bar-chart', 'href' => url('index.php?page=dashboards')],
+  'turmas' => ['label' => 'Minhas turmas', 'icon' => 'bi-mortarboard', 'href' => url('index.php?page=turmas')],
+  'projetos' => ['label' => 'Meus projetos', 'icon' => 'bi-award', 'href' => url('index.php?page=projetos')],
+  'biblioteca' => ['label' => 'Biblioteca', 'icon' => 'bi-book', 'href' => url('index.php?page=biblioteca')],
+  'pareces' => ['label' => 'Meus pareces', 'icon' => 'bi-ui-checks', 'href' => url('index.php?page=pareces')],
+  'frequencia' => ['label' => 'Monitoramento frequência', 'icon' => 'bi-percent', 'href' => url('index.php?page=frequencia')],
+  'aee' => ['label' => 'PAEE e PEI', 'icon' => 'bi-easel2', 'href' => url('index.php?page=aee')],
+  'infraestrutura' => ['label' => 'Avaliação de Infraestrutura', 'icon' => 'bi-building-check', 'href' => url('index.php?page=infraestrutura')],
+  'PME' => ['label' => 'Plano Municipal de Educação', 'icon' => 'bi-card-list', 'href' => url('index.php?page=pme')],
+  'PPA' => ['label' => 'Plano Plurianual', 'icon' => 'bi-cash-coin', 'href' => url('index.php?page=ppa')],
+  'planosGestao' => ['label' => 'Planos de Gestão', 'icon' => 'bi-postcard', 'href' => url('index.php?page=planosGestao')],
+  'calendario' => ['label' => 'Calendário', 'icon' => 'bi-calendar', 'href' => url('index.php?page=calendario')],
+  'justificativas' => ['label' => 'Justificativas do Ponto', 'icon' => 'bi-calendar-plus', 'href' => url('index.php?page=justificativas')],
+  'horarios' => ['label' => 'Construir Horários', 'icon' => 'bi-table', 'href' => url('index.php?page=horarios')],
+  'atestadosSaude' => ['label' => 'Atestados de Saúde', 'icon' => 'bi-bandaid', 'href' => url('index.php?page=atestadosSaude')],
+  'mooc' => ['label' => 'Cursos', 'icon' => 'bi-journals', 'href' => url('index.php?page=cursos')],
+  'progressao' => ['label' => 'Gestão de Certificados', 'icon' => 'bi-person-workspace', 'href' => url('index.php?page=progressao')],
+  'comunicadosPDDE' => ['label' => 'Comunicados PDDE', 'icon' => 'bi-chat-quote-fill', 'href' => url('index.php?page=comunicadosPDDE')],
+  'patrimonio' => ['label' => 'Patrimônio', 'icon' => 'bi-music-player', 'href' => url('index.php?page=patrimonio')],
+  'suporte' => ['label' => 'Suporte', 'icon' => 'bi-hammer', 'href' => url('index.php?page=suporte')],
+  'transporte' => ['label' => 'Transporte Escolar', 'icon' => 'bi-bus-front', 'href' => url('index.php?page=transporte')],
+  'votacoes' => ['label' => 'Votações', 'icon' => 'bi-person-plus', 'href' => url('index.php?page=votacoes')]
 ];
 function sa_sidebar_link(string $key, array $link, string $activePage): string
 {
@@ -34,33 +59,131 @@ if (!empty($user) && !empty($user['nome'])) {
   </div>
 </div>
 <div class="sa-sidebar-scroll px-2 pb-3">
-  <div class="sa-section-title px-2 mt-2">Workspace</div>
   <ul class="list-unstyled sa-tree">
     <li class="sa-item">
       <?= sa_sidebar_link('home', $links['home'], $activePage) ?>
     </li>
+    <hr>
     <li class="sa-item">
-      <button class="sa-link sa-link-btn" type="button" data-bs-toggle="collapse" data-bs-target="#wsSistemas"
+      <button class="sa-link sa-link-btn" type="button" data-bs-toggle="collapse" data-bs-target="#wsProtocolo"
         aria-expanded="true">
         <i class="bi bi-grid-3x3-gap me-2"></i>
-        <span class="flex-grow-1">Sistemas</span>
+        <span class="flex-grow-1">Protocolo</span>
         <i class="bi bi-chevron-down sa-caret"></i>
       </button>
-      <div class="collapse show" id="wsSistemas">
+      <div class="collapse show" id="wsProtocolo">
         <ul class="list-unstyled sa-sub">
+          <li class="sa-item"><?= sa_sidebar_link('protocolo', $links['protocolo'], $activePage) ?></li>
+          <li class="sa-item"><?= sa_sidebar_link('assinatura', $links['assinatura'], $activePage) ?></li>
           <li class="sa-item"><?= sa_sidebar_link('certificados', $links['certificados'], $activePage) ?></li>
-          <li class="sa-item"><?= sa_sidebar_link('documentos', $links['documentos'], $activePage) ?></li>
-          <li class="sa-item"><?= sa_sidebar_link('indicadores', $links['indicadores'], $activePage) ?></li>
+          <li class="sa-item"><?= sa_sidebar_link('atestados', $links['atestados'], $activePage) ?></li>
         </ul>
       </div>
     </li>
+    <hr>
     <li class="sa-item">
-      <a class="sa-link" href="#">
-        <i class="bi bi-life-preserver me-2"></i> Suporte técnico
-      </a>
+      <button class="sa-link sa-link-btn" type="button" data-bs-toggle="collapse" data-bs-target="#wsComunicados"
+        aria-expanded="true">
+        <i class="bi bi-grid-3x3-gap me-2"></i>
+        <span class="flex-grow-1">Comunicados</span>
+        <i class="bi bi-chevron-down sa-caret"></i>
+      </button>
+      <div class="collapse show" id="wsComunicados">
+        <ul class="list-unstyled sa-sub">
+          <li class="sa-item"><?= sa_sidebar_link('documentos', $links['documentos'], $activePage) ?></li>
+          <li class="sa-item"><?= sa_sidebar_link('calendario', $links['calendario'], $activePage) ?></li>
+          <li class="sa-item"><?= sa_sidebar_link('comunicadosPDDE', $links['comunicadosPDDE'], $activePage) ?></li>
+        </ul>
+      </div>
+    </li>
+    <hr>
+    <li class="sa-item">
+      <button class="sa-link sa-link-btn" type="button" data-bs-toggle="collapse" data-bs-target="#wsOuvidoria"
+        aria-expanded="true">
+        <i class="bi bi-grid-3x3-gap me-2"></i>
+        <span class="flex-grow-1">Ouvidoria</span>
+        <i class="bi bi-chevron-down sa-caret"></i>
+      </button>
+      <div class="collapse show" id="wsOuvidoria">
+        <ul class="list-unstyled sa-sub">
+          <li class="sa-item"><?= sa_sidebar_link('ouvidoria', $links['ouvidoria'], $activePage) ?></li>
+          <li class="sa-item"><?= sa_sidebar_link('infraestrutura', $links['infraestrutura'], $activePage) ?></li>
+          <li class="sa-item"><?= sa_sidebar_link('suporte', $links['suporte'], $activePage) ?></li>
+          <li class="sa-item"><?= sa_sidebar_link('votacoes', $links['votacoes'], $activePage) ?></li>
+        </ul>
+      </div>
+    </li>
+    <hr>
+    <li class="sa-item">
+      <button class="sa-link sa-link-btn" type="button" data-bs-toggle="collapse" data-bs-target="#wsDashboard"
+        aria-expanded="true">
+        <i class="bi bi-grid-3x3-gap me-2"></i>
+        <span class="flex-grow-1">Dados abertos</span>
+        <i class="bi bi-chevron-down sa-caret"></i>
+      </button>
+      <div class="collapse show" id="wsDashboard">
+        <ul class="list-unstyled sa-sub">
+          <li class="sa-item"><?= sa_sidebar_link('dashboards', $links['dashboards'], $activePage) ?></li>
+        </ul>
+      </div>
+    </li>
+    <hr>
+    <li class="sa-item">
+      <button class="sa-link sa-link-btn" type="button" data-bs-toggle="collapse" data-bs-target="#wsGestao"
+        aria-expanded="true">
+        <i class="bi bi-grid-3x3-gap me-2"></i>
+        <span class="flex-grow-1">Gestão</span>
+        <i class="bi bi-chevron-down sa-caret"></i>
+      </button>
+      <div class="collapse show" id="wsGestao">
+        <ul class="list-unstyled sa-sub">
+          <li class="sa-item"><?= sa_sidebar_link('turmas', $links['turmas'], $activePage) ?></li>
+          <li class="sa-item"><?= sa_sidebar_link('projetos', $links['projetos'], $activePage) ?></li>
+          <li class="sa-item"><?= sa_sidebar_link('PPA', $links['PPA'], $activePage) ?></li>
+          <li class="sa-item"><?= sa_sidebar_link('planosGestao', $links['planosGestao'], $activePage) ?></li>
+          <li class="sa-item"><?= sa_sidebar_link('justificativas', $links['justificativas'], $activePage) ?></li>
+          <li class="sa-item"><?= sa_sidebar_link('atestadosSaude', $links['atestadosSaude'], $activePage) ?></li>
+          <li class="sa-item"><?= sa_sidebar_link('progressao', $links['progressao'], $activePage) ?></li>
+          <li class="sa-item"><?= sa_sidebar_link('patrimonio', $links['patrimonio'], $activePage) ?></li>
+          <li class="sa-item"><?= sa_sidebar_link('transporte', $links['transporte'], $activePage) ?></li>
+        </ul>
+      </div>
+    </li>
+    <hr>
+    <li class="sa-item">
+      <button class="sa-link sa-link-btn" type="button" data-bs-toggle="collapse" data-bs-target="#wsBiblioteca"
+        aria-expanded="true">
+        <i class="bi bi-grid-3x3-gap me-2"></i>
+        <span class="flex-grow-1">Biblioteca</span>
+        <i class="bi bi-chevron-down sa-caret"></i>
+      </button>
+      <div class="collapse show" id="wsBiblioteca">
+        <ul class="list-unstyled sa-sub">
+          <li class="sa-item"><?= sa_sidebar_link('biblioteca', $links['biblioteca'], $activePage) ?></li>
+          <li class="sa-item"><?= sa_sidebar_link('mooc', $links['mooc'], $activePage) ?></li>
+        </ul>
+      </div>
+    </li>
+    <hr>
+    <li class="sa-item">
+      <button class="sa-link sa-link-btn" type="button" data-bs-toggle="collapse" data-bs-target="#wsPedagogico"
+        aria-expanded="true">
+        <i class="bi bi-grid-3x3-gap me-2"></i>
+        <span class="flex-grow-1">Pedagógico</span>
+        <i class="bi bi-chevron-down sa-caret"></i>
+      </button>
+      <div class="collapse show" id="wsPedagogico">
+        <ul class="list-unstyled sa-sub">
+          <li class="sa-item"><?= sa_sidebar_link('pareces', $links['pareces'], $activePage) ?></li>
+          <li class="sa-item"><?= sa_sidebar_link('frequencia', $links['frequencia'], $activePage) ?></li>
+          <li class="sa-item"><?= sa_sidebar_link('aee', $links['aee'], $activePage) ?></li>
+          <li class="sa-item"><?= sa_sidebar_link('PME', $links['PME'], $activePage) ?></li>
+          <li class="sa-item"><?= sa_sidebar_link('horarios', $links['horarios'], $activePage) ?></li>
+        </ul>
+      </div>
     </li>
   </ul>
-  <div class="sa-section-title px-2 mt-3">Private</div>
+  <hr>
   <ul class="list-unstyled sa-tree">
     <li class="sa-item">
       <button class="sa-link sa-link-btn" type="button" data-bs-toggle="collapse" data-bs-target="#pvCatalog"
@@ -72,7 +195,6 @@ if (!empty($user) && !empty($user['nome'])) {
       <div class="collapse show" id="pvCatalog">
         <ul class="list-unstyled sa-sub">
           <li class="sa-item"><a class="sa-link" href="#"><i class="bi bi-star me-2"></i> Favoritos</a></li>
-          <li class="sa-item"><a class="sa-link" href="#"><i class="bi bi-clock-history me-2"></i> Recentes</a></li>
         </ul>
       </div>
     </li>
