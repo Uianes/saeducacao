@@ -1,0 +1,190 @@
+:root {
+        --bg-1: #eaf6fb;
+        --bg-2: #e2f1f8;
+        --accent: #7a5cff;
+        --text-1: #1f2a37;
+        --text-2: #6b7280;
+        --card: #ffffff;
+        --shadow: 0 24px 60px rgba(17, 24, 39, .18);
+    }
+
+    body {
+    min-height: 100vh;
+    background: #f6f7f9;
+    color: var(--text-1);
+}
+
+.sa-home{
+    background:
+        radial-gradient(1200px 600px at 85% 20%, var(--bg-2) 0%, rgba(226, 248, 235, 0) 60%),
+        linear-gradient(180deg, var(--bg-1), var(--bg-1));
+    border-radius: 1rem;
+    padding: 1.25rem;
+}
+
+
+    .bg-bubble {
+        position: absolute;
+        inset: auto -140px -220px auto;
+        bottom: 0;
+        width: 720px;
+        height: 720px;
+        background: rgba(150, 230, 165, 0.22);
+        border-radius: 50%;
+        filter: blur(0px);
+        pointer-events: none;
+        z-index: -1;
+        
+    }
+
+    .hero-title {
+        font-weight: 800;
+        letter-spacing: -.02em;
+        line-height: 1.05;
+    }
+
+    .hero-title .accent {
+        color: var(--accent);
+    }
+
+    .mock-card {
+        background: var(--card);
+        border: 1px solid rgba(17, 24, 39, .08);
+        border-radius: 18px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        max-width: 640px;
+        margin-inline: auto;
+    }
+
+    .mock-topbar {
+        height: 44px;
+        background: #0f172a;
+        display: flex;
+        align-items: center;
+        padding: 0 14px;
+        gap: 10px;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, .25);
+    }
+
+    .mock-toolbar {
+        margin-left: auto;
+        display: flex;
+        gap: 10px;
+        color: rgba(255, 255, 255, .75);
+        font-size: 14px;
+    }
+
+    .mock-body {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        min-height: 360px;
+    }
+
+    .mock-sidebar {
+        background: #f8fafc;
+        border-right: 1px solid rgba(17, 24, 39, .08);
+        padding: 16px 14px;
+        font-size: 14px;
+        color: #0f172a;
+    }
+
+    .mock-section-title {
+        font-weight: 700;
+        font-size: 12px;
+        color: rgba(15, 23, 42, .65);
+        text-transform: uppercase;
+        letter-spacing: .08em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .mock-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 10px;
+        border-radius: 10px;
+        cursor: default;
+    }
+
+    .mock-item.active {
+        background: rgba(122, 92, 255, .12);
+        outline: 1px solid rgba(122, 92, 255, .25);
+        font-weight: 600;
+    }
+
+    .mock-item .bullet {
+        width: 10px;
+        height: 10px;
+        border-radius: 3px;
+        background: rgba(15, 23, 42, .18);
+    }
+
+    .mock-canvas {
+        background: #ffffff;
+        padding: 18px 22px;
+    }
+
+    .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 10px;
+        border-radius: 10px;
+        background: rgba(15, 23, 42, .06);
+        font-size: 13px;
+        color: rgba(15, 23, 42, .8);
+    }
+
+    .big-list {
+        margin-top: 16px;
+        display: grid;
+        gap: 10px;
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    .big-list .rowi {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 6px 10px;
+        border-radius: 12px;
+    }
+
+    .big-list .rowi.active {
+        background: rgba(122, 92, 255, .18);
+    }
+
+    .emoji {
+        width: 34px;
+        height: 34px;
+        display: grid;
+        place-items: center;
+        border-radius: 10px;
+        background: rgba(15, 23, 42, .06);
+        font-size: 18px;
+    }
+
+    @media (max-width: 992px) {
+        .mock-body {
+            grid-template-columns: 1fr;
+        }
+
+        .mock-sidebar {
+            display: none;
+        }
+
+        .big-list {
+            font-size: 24px;
+        }
+    }

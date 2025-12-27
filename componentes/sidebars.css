@@ -1,0 +1,71 @@
+/*
+  Sidebar estilo "knowledge base" (inspirado no layout de referência).
+  Mantém aparência limpa e consistente, com foco em leitura.
+*/
+
+.sa-sidebar {
+  width: 280px;
+  min-height: 100vh;
+}
+
+.sa-sidebar-scroll {
+  overflow-y: auto;
+}
+
+.sa-search .form-control:focus {
+  box-shadow: none;
+}
+
+.sa-section-title {
+  font-size: .78rem;
+  letter-spacing: .04em;
+  color: #6c757d;
+  font-weight: 700;
+  margin-bottom: .35rem;
+}
+
+.sa-tree .sa-item {
+  margin: 2px 0;
+}
+
+.sa-link {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: .45rem .6rem;
+  border-radius: .5rem;
+  color: #212529;
+  text-decoration: none;
+  font-size: .92rem;
+}
+
+.sa-link:hover {
+  background: rgba(0, 0, 0, .04);
+}
+
+.sa-link-active {
+  background: rgba(13, 110, 253, .08);
+  outline: 1px solid rgba(13, 110, 253, .18);
+  font-weight: 600;
+}
+
+.sa-link-btn {
+  background: transparent;
+  border: 0;
+  text-align: left;
+}
+
+.sa-sub {
+  padding-left: 1.25rem;
+  margin-top: 2px;
+}
+
+.sa-caret {
+  font-size: .85rem;
+  opacity: .75;
+  transition: transform .15s ease;
+}
+
+.sa-link-btn[aria-expanded="false"] .sa-caret {
+  transform: rotate(-90deg);
+}
