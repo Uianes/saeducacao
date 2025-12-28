@@ -10,7 +10,7 @@ function h($v){ return htmlspecialchars((string)$v, ENT_QUOTES, 'UTF-8'); }
 ?>
 <div class="d-flex align-items-center justify-content-between mb-3">
   <div>
-    <h3 class="mb-0">Configurações</h3>
+    <h2 class="mb-2 text-body-emphasis">Configurações</h2>
     <div class="text-muted">Avatar e aparência</div>
   </div>
 </div>

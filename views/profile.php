@@ -46,7 +46,7 @@ function fmt_date($d)
 ?>
 <div class="d-flex align-items-center justify-content-between mb-3">
   <div>
-    <h3 class="mb-0">Minha conta</h3>
+    <h2 class="mb-2 text-body-emphasis">Minha conta</h2>
     <div class="text-muted">Dados cadastrais e vínculos</div>
   </div>
 </div>
